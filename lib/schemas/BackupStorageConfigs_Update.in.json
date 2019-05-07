@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "vaultName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "ARM Resource.",
+                    "properties": {
+                        "eTag": {
+                            "description": "Optional ETag.",
+                            "type": "string"
+                        },
+                        "id": {
+                            "description": "Resource Id represents the complete path to the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource name associated with the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                }
+            ],
+            "description": "The backup storage config.",
+            "properties": {
+                "properties": {
+                    "x-ms-client-flatten": true,
+                    "description": "The backup storage config.",
+                    "properties": {
+                        "storageModelType": {
+                            "description": "Storage model type.",
+                            "enum": [
+                                "Invalid",
+                                "GeoRedundant",
+                                "LocallyRedundant"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "StorageModelType"
+                            }
+                        },
+                        "storageType": {
+                            "description": "Storage type.",
+                            "enum": [
+                                "Invalid",
+                                "GeoRedundant",
+                                "LocallyRedundant"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "StorageType"
+                            }
+                        },
+                        "storageTypeState": {
+                            "description": "Locked or Unlocked. Once a machine is registered against a resource, the storageTypeState is always Locked.",
+                            "enum": [
+                                "Invalid",
+                                "Locked",
+                                "Unlocked"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "StorageTypeState"
+                            }
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
